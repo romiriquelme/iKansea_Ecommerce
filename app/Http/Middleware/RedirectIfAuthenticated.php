@@ -11,15 +11,18 @@ use Symfony\Component\HttpFoundation\Response;
 class RedirectIfAuthenticated
 {
 
-	public function handle(Request $request, Closure $next, string ...$guards): Response{
-		$guards = empty($guards) ? [null] : $guards;
+	public function handle(Request $request, Closure $next, string $guards): Response
+{
+    $guardsArray = explode(',', $guards);
 
-		foreach ($guards as $guard) {
-			if (Auth::guard($guard)->check()){
-				return redirect(RouteServiceProvider::HOME);
-			}
-		}
+    foreach ($guardsArray as $guard) {
+        if (Auth::guard($guard)->check()) {
+            return redirect($guard . '/dashboard');
+        }
+    }
 
-		return $next($request);
-	}
+    return $next($request);
+}
+
+
 }

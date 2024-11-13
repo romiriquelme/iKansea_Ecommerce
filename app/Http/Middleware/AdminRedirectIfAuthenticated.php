@@ -17,14 +17,19 @@ class AdminRedirectIfAuthenticated
 	 * (\Symfony\Component\HttpFoundation\Response) $next
 	 **/
 
-	public function handle(Request $request, Closure $next, string $guards): Response{
-		$guards = empty($guards as $guard){
-			if (Auth::guard($guard)->check()){
-				return redirect($guard.'/dashboard');
-			}
-		}
-		return $next($request);
-	}
+	 public function handle(Request $request, Closure $next, string $guards): Response
+	 {
+		 $guardsArray = explode(',', $guards);
+	 
+		 foreach ($guardsArray as $guard) {
+			 if (Auth::guard($guard)->check()) {
+				 return redirect($guard . '/dashboard');
+			 }
+		 }
+	 
+		 return $next($request);
+	 }
+	 
 }
 
 
