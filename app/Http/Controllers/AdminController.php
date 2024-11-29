@@ -67,7 +67,7 @@ class AdminController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        return $this->loginPipeline($request)->then(function ($request) {
+        return $this->loginPipeline($request)->then(function($request) {
             return app(LoginResponse::class);
         });
     }

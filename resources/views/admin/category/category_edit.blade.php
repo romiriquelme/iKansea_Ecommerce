@@ -15,7 +15,7 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-                    <form method="post" action="{{ route{('category.update', $category->id)')}}">
+                    <form method="post" action="{{ route('category.update', $category->id) }}">
                         @csrf
                     <div class="col-6">
 									<div class="form-group">

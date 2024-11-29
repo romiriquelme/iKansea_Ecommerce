@@ -54,7 +54,7 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-                    <form method="post" action="{{ route{('brand.store')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route{{('brand.store')}}" enctype="multipart/form-data">
                         @csrf
                     <div class="col-6">
 									<div class="form-group">
