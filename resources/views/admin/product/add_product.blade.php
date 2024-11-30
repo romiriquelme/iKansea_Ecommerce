@@ -1,6 +1,8 @@
 @extends('admin.admin_master')
 @section('content')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <div class="container-full">
 		<!-- Content Header (Page header) -->
 
@@ -150,10 +152,11 @@
                                     <div class="form-group">
                                         <h5>Main Thumbnail <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                        <input type="file" name="product_thumbnail" class="form-control">
+                                        <input type="file" name="product_thumbnail" class="form-control" onChange="mainThumb(this)">
                                             @error('product_thumbnail')
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
+                                            <img src="" id="mainThumb">
                                         </div>
                                     </div>
                                 </div>
@@ -161,10 +164,11 @@
                                 <div class="form-group">
                                         <h5>Multiple Image <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                        <input type="file" name="multiple_img[]" class="form-control">
+                                        <input type="file" name="multiple_img[]" class="form-control" multiple="" id="multiImg">
                                             @error('multiple_img[]')
                                             <span class="text-danger">{{ $message }}</span>
                                             @enderror
+                                            <div class="row" id="preview_img"></div>
                                         </div>
                                 </div>
                             </div>
@@ -294,5 +298,84 @@
 		</section>
 		<!-- /.content -->
 	  </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('select[name="category_id"]').on('change',function(){
+			var category_id = $(this).val();
+			if(category_id) {
+				$.ajax({
+					url: "{{ url('/get/subcategory/') }}/"+category_id,
+					type: "GET",
+					dataType: "json",
+					success:function(data) {
+                        $('select[name="subsubcategory_id"]').html('');
+						var d =$('select[name="subcategory_id"]').empty();
+						$.each(data, function(key, value){
+							$('select[name="subcategory_id"]').append('<option value="'+value.id+'">'+value.subcategory_name_en+'</option>');
+						});
+					},
+				});
+			}else{
+				alert('danger');
+			}
+		});
+
+        $('select[name="subcategory_id"]').on('change',function(){
+			var subcategory_id = $(this).val();
+			if(subcategory_id) {
+				$.ajax({
+					url: "{{ url('/get/subsubcategory/') }}/"+subcategory_id,
+					type: "GET",
+					dataType: "json",
+					success:function(data) {
+						var d =$('select[name="subsubcategory_id"]').empty();
+						$.each(data, function(key, value){
+							$('select[name="subsubcategory_id"]').append('<option value="'+value.id+'">'+value.subsubcategory_name_en+'</option>');
+						});
+					},
+				});
+			}else{
+				alert('danger');
+			}
+		});
+	});
+</script>
+
+<script type="text/javascript">
+    function mainThamUrl(input){
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#mainThmb').attr('src',e.target.result).width(80).height(80);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#multiImg').on('change',function(){
+           if (window.File && window.FileReader && window.FileList && window.Blob) {
+               var data = $(this)[0].files;
+               $.each(data,function(index,file){
+                   if(/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file.type)){
+                       var fileReader = new FileReader();
+                       fileReader.onload = function(file) {
+                        return function(e) {
+                            var img = $('<img/>').addClass('mt-3 mr-2').attr('src',e.target.result).width(80).height(80);
+                            $('#preview_img').append(img);
+                        };
+                       }(file);
+                       fileReader.readAsDataURL(file);
+                   }
+               });
+           }else{
+               alert('Your browser does not support File API');
+           }
+        });
+    });
+</script>
 
 @endsection
