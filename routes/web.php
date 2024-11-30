@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\ProductController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -94,6 +95,11 @@ Route::prefix('category')->group(function(){
     Route::post('/sub/sub/update/{id}', [SubCategoryController::class, 'subSubcategoryUpdate'])->name('subsubcategory.update'); 
 
     Route::get('/sub/sub/delete/{id}', [SubCategoryController::class, 'subSubCategoryDelete'])->name('subsubcategory.delete');
+});
+
+Route::prefix('product')->group(function(){
+
+    Route::get('/addProduct', [ProductController::class, 'addProduct'])->name('add.product');  
 });
 
 
