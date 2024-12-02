@@ -15,12 +15,22 @@ use App\Http\Controllers\Backend\AdminProfileController;
 //     return view('welcome');
 // });
 
-// All Admin Routes
 
-Route::middleware('admin:admin')->group(function(){
-    Route::get('admin/login', [AdminController::class, 'loginForm']);
-    Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
+
+
+
+### All Admin Routes
+
+Route::group(['prefix'=> 'admin', 'middleware' => ['admin:admin']], function(){
+    Route::get('/login', [AdminController::class, 'loginForm']);
+    Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
 });
+
+
+// Route::middleware('admin:admin')->group(function(){
+//     Route::get('admin/login', [AdminController::class, 'loginForm']);
+//     Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
+// });
 
 Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
@@ -37,6 +47,8 @@ Route::post('/admin/password/update', [AdminProfileController::class, 'adminUpda
 
 
 
+
+
 Route::prefix('brand')->group(function(){
 
     Route::get('/view', [BrandController::class, 'viewBrand'])->name('all.brand');  
@@ -49,6 +61,8 @@ Route::prefix('brand')->group(function(){
 
     Route::get('/delete/{id}', [BrandController::class, 'brandDelete'])->name('brand.delete');
 });
+
+
 
 
 Route::prefix('category')->group(function(){
@@ -99,19 +113,18 @@ Route::prefix('category')->group(function(){
 
 
 
-
+## Middleware for Admin
 Route::middleware([
     'auth:sanctum,admin',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
     Route::get('/admin/dashboard', function () {
-        return view('admin.index');
+        return view('dashboard');
     })->name('dashboard');
 });
 
-// Route All Frontend
-
+## Middleware for user
 Route::middleware([
     'auth:sanctum,web', 'verified'
 ])->get('/dashboard', function () {
@@ -120,7 +133,12 @@ Route::middleware([
     return view('dashboard', compact('user'));
 })->name('dashboard');
 
-    
+
+
+
+// Route All Frontend
+
+
 Route::get('/', [IndexController::class, 'index']);
     
 Route::get('/user/logout', [IndexController::class, 'userLogout'])->name('user.logout');

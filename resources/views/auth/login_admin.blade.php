@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    {{ asset('')}}
+    
     <link rel="icon" href="{{ asset('Backend/images/favicon.ico') }}">
 
-    <title>iKansea Admin - Log in </title>
+    <title>iKansea Admin - Login </title>
   
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('Backend/css/vendors_css.css') }}">
