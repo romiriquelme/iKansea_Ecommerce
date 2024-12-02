@@ -29,10 +29,20 @@
 		<div class="form-group">
 		    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
 		    <input type="email" id="email" name="email" class="form-control unicase-form-control text-input" >
+			@error('email')
+			 <span class="invalid-feedback" role="alert">
+				 <strong>{{ $message }}</strong>
+			 </span>
+			 @enderror
 		</div>
 	  	<div class="form-group">
 		    <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
 		    <input type="password" id="password" name="password" class="form-control unicase-form-control text-input" >
+			@error('password')
+			 <span class="invalid-feedback" role="alert">
+				 <strong>{{ $message }}</strong>
+			 </span>
+			 @enderror
 		</div>
 		<div class="radio outer-xs">
 		  	<label>
