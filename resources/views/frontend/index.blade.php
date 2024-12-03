@@ -178,7 +178,7 @@
                           <div class="product-info">
                             <h3 class="name"><a href="#">Alaska Crabs</a></h3>
                             <div class="rating rateit-small"></div>
-                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <div class="product-price"> <span class="price"> $12 </span> </div>
                             <!-- /.product-price --> 
                             
                           </div>
@@ -206,7 +206,7 @@
                           <div class="product-info">
                             <h3 class="name"><a href="#">Yuyu Crabs</a></h3>
                             <div class="rating rateit-small"></div>
-                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <div class="product-price"> <span class="price"> $10 </span> </div>
                             <!-- /.product-price --> 
                             
                           </div>
@@ -234,7 +234,7 @@
                           <div class="product-info">
                             <h3 class="name"><a href="#">Lobster</a></h3>
                             <div class="rating rateit-small"></div>
-                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <div class="product-price"> <span class="price"> $8 </span> </div>
                             <!-- /.product-price --> 
                             
                           </div>
@@ -266,7 +266,7 @@
                           <div class="product-info">
                             <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
                             <div class="rating rateit-small"></div>
-                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <div class="product-price"> <span class="price"> $9 </span> </div>
                             <!-- /.product-price --> 
                             
                           </div>
@@ -294,7 +294,7 @@
                           <div class="product-info">
                             <h3 class="name"><a href="#">Jellyfish</a></h3>
                             <div class="rating rateit-small"></div>
-                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <div class="product-price"> <span class="price"> $11 </span> </div>
                             <!-- /.product-price --> 
                             
                           </div>
@@ -322,7 +322,7 @@
                           <div class="product-info">
                             <h3 class="name"><a href="#">Catfish</a></h3>
                             <div class="rating rateit-small"></div>
-                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <div class="product-price"> <span class="price"> $7 </span> </div>
                             <!-- /.product-price --> 
                             
                           </div>
@@ -354,7 +354,7 @@
                           <div class="product-info">
                             <h3 class="name"><a href="#">Baby Shark</a></h3>
                             <div class="rating rateit-small"></div>
-                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <div class="product-price"> <span class="price"> $14 </span> </div>
                             <!-- /.product-price --> 
                             
                           </div>
@@ -462,7 +462,7 @@
                         <!-- /.col -->
                         <div class="col col-xs-7">
                           <div class="product-info">
-                            <h3 class="name"><a href="#">Bandeng</a></h3>
+                            <h3 class="name"><a href="#">Lobster</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="product-price"> <span class="price"> $76 </span> </div>
                             <!-- /.product-price --> 
@@ -490,7 +490,7 @@
                         <!-- /.col -->
                         <div class="col col-xs-7">
                           <div class="product-info">
-                            <h3 class="name"><a href="#">Bandeng</a></h3>
+                            <h3 class="name"><a href="#">gurami</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="product-price"> <span class="price"> $69 </span> </div>
                             <!-- /.product-price --> 
@@ -518,7 +518,7 @@
                         <!-- /.col -->
                         <div class="col col-xs-7">
                           <div class="product-info">
-                            <h3 class="name"><a href="#">Bandeng</a></h3>
+                            <h3 class="name"><a href="#">patin</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="product-price"> <span class="price"> $44 </span> </div>
                             <!-- /.product-price --> 
@@ -887,7 +887,7 @@
                           <div class="tag new"><span>new</span></div>
                         </div>
                         <!-- /.product-image -->
-                         <img src="bandeng.jpg" alt="300">
+                         <img src="{{asset('/public/upload/bandeng.jpg')}}">
                         
                         <div class="product-info text-left">
                           <h3 class="name"><a href="detail.html">Bandeng</a></h3>
@@ -932,7 +932,7 @@
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                          <h3 class="name"><a href="detail.html">salmon</a></h3>
                           <div class="rating rateit-small"></div>
                           <div class="description"></div>
                           <div class="product-price"> <span class="price"> $150 </span> <span class="price-before-discount">$ 800</span> </div>
@@ -974,7 +974,7 @@
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                          <h3 class="name"><a href="detail.html">mujaer</a></h3>
                           <div class="rating rateit-small"></div>
                           <div class="description"></div>
                           <div class="product-price"> <span class="price"> $200 </span> <span class="price-before-discount">$ 800</span> </div>
@@ -1016,7 +1016,7 @@
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                          <h3 class="name"><a href="detail.html">tuna</a></h3>
                           <div class="rating rateit-small"></div>
                           <div class="description"></div>
                           <div class="product-price"> <span class="price"> $300 </span> <span class="price-before-discount">$ 800</span> </div>
@@ -1058,7 +1058,7 @@
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                          <h3 class="name"><a href="detail.html">Lobster</a></h3>
                           <div class="rating rateit-small"></div>
                           <div class="description"></div>
                           <div class="product-price"> <span class="price"> $111 </span> <span class="price-before-discount">$ 800</span> </div>
@@ -2005,7 +2005,7 @@
                   <!-- /.product-image -->
                   
                   <div class="product-info text-left">
-                    <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                    <h3 class="name"><a href="detail.html">patin</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
                     <div class="product-price"> <span class="price"> $198 </span> <span class="price-before-discount">$ 800</span> </div>
@@ -2047,7 +2047,7 @@
                   <!-- /.product-image -->
                   
                   <div class="product-info text-left">
-                    <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                    <h3 class="name"><a href="detail.html">tongkol</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
                     <div class="product-price"> <span class="price"> $225 </span> <span class="price-before-discount">$ 800</span> </div>
@@ -2089,7 +2089,7 @@
                   <!-- /.product-image -->
                   
                   <div class="product-info text-left">
-                    <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                    <h3 class="name"><a href="detail.html">bawal</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
                     <div class="product-price"> <span class="price"> $876 </span> <span class="price-before-discount">$ 800</span> </div>
@@ -2131,7 +2131,7 @@
                   <!-- /.product-image -->
                   
                   <div class="product-info text-left">
-                    <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                    <h3 class="name"><a href="detail.html">kakap merah</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
                     <div class="product-price"> <span class="price"> $331 </span> <span class="price-before-discount">$ 800</span> </div>
@@ -2255,7 +2255,7 @@
                         <!-- /.col -->
                         <div class="col2 col-xs-7">
                           <div class="product-info">
-                            <h3 class="name"><a href="#">Bandeng</a></h3>
+                            <h3 class="name"><a href="#">salmon</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="product-price"> <span class="price"> $15 </span> </div>
                             <!-- /.product-price --> 
@@ -2283,7 +2283,7 @@
                         <!-- /.col -->
                         <div class="col2 col-xs-7">
                           <div class="product-info">
-                            <h3 class="name"><a href="#">Bandeng</a></h3>
+                            <h3 class="name"><a href="#">nila</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="product-price"> <span class="price"> $10 </span> </div>
                             <!-- /.product-price --> 
@@ -2315,7 +2315,7 @@
                         <!-- /.col -->
                         <div class="col2 col-xs-7">
                           <div class="product-info">
-                            <h3 class="name"><a href="#">Bandeng</a></h3>
+                            <h3 class="name"><a href="#">Lobster</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="product-price"> <span class="price"> $21 </span> </div>
                             <!-- /.product-price --> 
@@ -2343,7 +2343,7 @@
                         <!-- /.col -->
                         <div class="col2 col-xs-7">
                           <div class="product-info">
-                            <h3 class="name"><a href="#">Bandeng</a></h3>
+                            <h3 class="name"><a href="#">yuyu crab</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="product-price"> <span class="price"> $12 </span> </div>
                             <!-- /.product-price --> 
@@ -2375,7 +2375,7 @@
                         <!-- /.col -->
                         <div class="col2 col-xs-7">
                           <div class="product-info">
-                            <h3 class="name"><a href="#">Bandeng</a></h3>
+                            <h3 class="name"><a href="#">Tuna</a></h3>
                             <div class="rating rateit-small"></div>
                             <div class="product-price"> <span class="price"> $41 </span> </div>
                             <!-- /.product-price --> 
@@ -2612,10 +2612,10 @@
                   <!-- /.product-image -->
                   
                   <div class="product-info text-left">
-                    <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                    <h3 class="name"><a href="detail.html">kakap merah</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
-                    <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+                    <div class="product-price"> <span class="price"> $233 </span> <span class="price-before-discount">$ 100</span> </div>
                     <!-- /.product-price --> 
                     
                   </div>
@@ -2654,10 +2654,10 @@
                   <!-- /.product-image -->
                   
                   <div class="product-info text-left">
-                    <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                    <h3 class="name"><a href="detail.html">kerapu</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
-                    <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+                    <div class="product-price"> <span class="price"> $200 </span> <span class="price-before-discount">$ 50</span> </div>
                     <!-- /.product-price --> 
                     
                   </div>
@@ -2696,10 +2696,10 @@
                   <!-- /.product-image -->
                   
                   <div class="product-info text-left">
-                    <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                    <h3 class="name"><a href="detail.html">bawal</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
-                    <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+                    <div class="product-price"> <span class="price"> $100 </span> <span class="price-before-discount">$ 50</span> </div>
                     <!-- /.product-price --> 
                     
                   </div>
@@ -2738,10 +2738,10 @@
                   <!-- /.product-image -->
                   
                   <div class="product-info text-left">
-                    <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                    <h3 class="name"><a href="detail.html">tongkol</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
-                    <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+                    <div class="product-price"> <span class="price"> $50 </span> <span class="price-before-discount">$ 25</span> </div>
                     <!-- /.product-price --> 
                     
                   </div>
@@ -2783,7 +2783,7 @@
                     <h3 class="name"><a href="detail.html">Bandeng</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
-                    <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+                    <div class="product-price"> <span class="price"> $45 </span> <span class="price-before-discount">$ 25</span> </div>
                     <!-- /.product-price --> 
                     
                   </div>
@@ -2822,10 +2822,10 @@
                   <!-- /.product-image -->
                   
                   <div class="product-info text-left">
-                    <h3 class="name"><a href="detail.html">Bandeng</a></h3>
+                    <h3 class="name"><a href="detail.html">patin</a></h3>
                     <div class="rating rateit-small"></div>
                     <div class="description"></div>
-                    <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
+                    <div class="product-price"> <span class="price"> $42 </span> <span class="price-before-discount">$ 25</span> </div>
                     <!-- /.product-price --> 
                     
                   </div>
