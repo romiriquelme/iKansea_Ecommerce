@@ -17,7 +17,7 @@ $route = Route::current()->getName();
 					 <div class="d-flex align-items-center justify-content-center">					 	
 						  <img src="{{ asset('Backend/images/logo-dark.png') }}" alt="">
 
-						  <h3><b>iKansea</b> Admin</h3>
+						  <h3>iKansea</h3>
 					 </div>
 				</a>
 			</div>
@@ -27,7 +27,7 @@ $route = Route::current()->getName();
       <ul class="sidebar-menu" data-widget="tree">  
 		  
 		<li class="{{ ($route == 'dashboard') ? 'active' : '' }}">
-          <a href="{{ url('/admin/dashboard') }}">
+          <a href="{{ url('/admin/admin_master') }}">
             <i data-feather="pie-chart"></i>
 			<span>Dashboard</span>
           </a>

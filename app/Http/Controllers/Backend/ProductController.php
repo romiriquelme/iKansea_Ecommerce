@@ -10,9 +10,9 @@ use App\Models\SubSubCategory;
 use App\Models\Brand;
 use Carbon\Carbon;
 use App\Models\MultiImg;
-use Image;
+use Intervention\Image\Image;
 
-use App\Models\Product;
+use App\Models\Products as Product;
 
 class ProductController extends Controller
 {

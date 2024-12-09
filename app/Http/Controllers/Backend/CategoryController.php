@@ -10,7 +10,7 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function viewCategory(){
-        $category = Category::lattest()->get();
+        $category = Category::latest()->get();
         return view('admin.category.category_view',compact('category'));
     }
 

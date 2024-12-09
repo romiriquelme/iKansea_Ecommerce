@@ -16,7 +16,7 @@ class LoginResponse implements LoginResponseContract
     public function toResponse($request)
     {
         return $request->wantsJson()
-                    ? response()->json(['two_factor' => true])
-                    : redirect()->intended('admin/index');
+                    ? response()->json(['two_factor' => false])
+                    : redirect()->intended('admin/admin_master');
     }
 }

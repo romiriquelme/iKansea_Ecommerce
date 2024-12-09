@@ -13,8 +13,8 @@ class SubCategoryController extends Controller
 {
     public function viewSubCategory(){
         $categoies = Category::orderBy('category_name_en','ASC')->get();
-        $subcategory = SubCategory::lattest()->get();
-        return view('admin.category.subcategory_view',compact('subcategory'));
+        $subcategory = SubCategory::latest()->get();
+        return view('admin.category.subcategory_view',compact('subcategory', 'categoies'));
     }
 
 

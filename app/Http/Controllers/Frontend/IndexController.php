@@ -17,7 +17,7 @@ class IndexController extends Controller
 
     public function userLogout(){
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('index');
     }
 
     public function userProfileEdit(){

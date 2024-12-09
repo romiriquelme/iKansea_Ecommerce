@@ -1,4 +1,4 @@
-@extend('admin.admin_master')
+@include('admin.admin_master')
 @section('content')
 
 <div class="container-full">

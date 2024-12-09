@@ -84,7 +84,7 @@ Route::prefix('category')->group(function(){
 
     Route::get('/sub/view', [SubCategoryController::class, 'viewsubCategory'])->name('all.subcategory');  
 
-    Route::post('/sub/store', [SubCategoryController::class, 'subCategoryStore'])->name('category.store'); 
+    Route::post('/sub/store', [SubCategoryController::class, 'subCategoryStore'])->name('subcategory.store'); 
     
     Route::get('/sub/edit/{id}', [SubCategoryController::class, 'subCategoryEdit'])->name('subcategory.edit'); 
 
@@ -129,9 +129,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/admin/admin_master', function () {
+        return view('admin.admin_master');
+    })->name('admin_dashboard');
 });
 
 ## Middleware for user
@@ -140,8 +140,8 @@ Route::middleware([
 ])->get('/dashboard', function () {
     $id = Auth::user()->id;
     $user = User::find($id);
-    return view('dashboard', compact('user'));
-})->name('dashboard');
+    return view('frontend.index', compact('user'));
+})->name('index');
 
 
 
@@ -149,7 +149,7 @@ Route::middleware([
 // Route All Frontend
 
 
-Route::get('/', [IndexController::class, 'index']);
+Route::get('/', [IndexController::class, 'index'])->name('index');
     
 Route::get('/user/logout', [IndexController::class, 'userLogout'])->name('user.logout');
 
