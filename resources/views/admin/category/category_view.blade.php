@@ -1,4 +1,4 @@
-@extend('admin.admin_master')
+@include('admin.admin_master')
 @section('content')
 
 
@@ -56,7 +56,7 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-                    <form method="post" action="{{ route{{('category.store')}}">
+                    <form method="post" action="{{ route('category.store')}}">
                         @csrf
                     <div class="col-6">
 									<div class="form-group">

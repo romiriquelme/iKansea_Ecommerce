@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Brand;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\Image;
 
 class BrandController extends Controller
 {

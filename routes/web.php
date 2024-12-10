@@ -16,12 +16,22 @@ use App\Http\Controllers\Backend\ProductController;
 //     return view('welcome');
 // });
 
-// All Admin Routes
 
-Route::middleware('admin:admin')->group(function(){
-    Route::get('admin/login', [AdminController::class, 'loginForm']);
-    Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
+
+
+
+### All Admin Routes
+
+Route::group(['prefix'=> 'admin', 'middleware' => ['admin:admin']], function(){
+    Route::get('/login', [AdminController::class, 'loginForm']);
+    Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
 });
+
+
+// Route::middleware('admin:admin')->group(function(){
+//     Route::get('admin/login', [AdminController::class, 'loginForm']);
+//     Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
+// });
 
 Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
@@ -38,6 +48,8 @@ Route::post('/admin/password/update', [AdminProfileController::class, 'adminUpda
 
 
 
+
+
 Route::prefix('brand')->group(function(){
 
     Route::get('/view', [BrandController::class, 'viewBrand'])->name('all.brand');  
@@ -50,6 +62,8 @@ Route::prefix('brand')->group(function(){
 
     Route::get('/delete/{id}', [BrandController::class, 'brandDelete'])->name('brand.delete');
 });
+
+
 
 
 Route::prefix('category')->group(function(){
@@ -70,7 +84,7 @@ Route::prefix('category')->group(function(){
 
     Route::get('/sub/view', [SubCategoryController::class, 'viewsubCategory'])->name('all.subcategory');  
 
-    Route::post('/sub/store', [SubCategoryController::class, 'subCategoryStore'])->name('category.store'); 
+    Route::post('/sub/store', [SubCategoryController::class, 'subCategoryStore'])->name('subcategory.store'); 
     
     Route::get('/sub/edit/{id}', [SubCategoryController::class, 'subCategoryEdit'])->name('subcategory.edit'); 
 
@@ -109,29 +123,33 @@ Route::prefix('product')->group(function(){
 
 
 
-
+## Middleware for Admin
 Route::middleware([
     'auth:sanctum,admin',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.index');
-    })->name('dashboard');
+    Route::get('/admin/admin_master', function () {
+        return view('admin.admin_master');
+    })->name('admin_dashboard');
 });
 
-// Route All Frontend
-
+## Middleware for user
 Route::middleware([
     'auth:sanctum,web', 'verified'
 ])->get('/dashboard', function () {
     $id = Auth::user()->id;
     $user = User::find($id);
-    return view('dashboard', compact('user'));
-})->name('dashboard');
+    return view('frontend.index', compact('user'));
+})->name('index');
 
-    
-Route::get('/', [IndexController::class, 'index']);
+
+
+
+// Route All Frontend
+
+
+Route::get('/', [IndexController::class, 'index'])->name('index');
     
 Route::get('/user/logout', [IndexController::class, 'userLogout'])->name('user.logout');
 

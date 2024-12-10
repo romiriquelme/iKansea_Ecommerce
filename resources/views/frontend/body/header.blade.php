@@ -12,7 +12,7 @@
             <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
 
             @auth 
-            <li><a href="{{ route('dashboard') }}"><i class="icon fa fa-user"></i>User Profile</a></li>
+            <li><a href="{{ route('user.profile.edit') }}"><i class="icon fa fa-user"></i>User Profile</a></li>
             @else
             <li><a href="{{ route('login') }}"><i class="icon fa fa-lock"></i>Login/Register</a></li>
             @endauth

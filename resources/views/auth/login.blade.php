@@ -29,20 +29,10 @@
 		<div class="form-group">
 		    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
 		    <input type="email" id="email" name="email" class="form-control unicase-form-control text-input" >
-			@error('email')
-			 <span class="invalid-feedback" role="alert">
-				 <strong>{{ $message }}</strong>
-			 </span>
-			 @enderror
 		</div>
 	  	<div class="form-group">
 		    <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
 		    <input type="password" id="password" name="password" class="form-control unicase-form-control text-input" >
-			@error('password')
-			 <span class="invalid-feedback" role="alert">
-				 <strong>{{ $message }}</strong>
-			 </span>
-			 @enderror
 		</div>
 		<div class="radio outer-xs">
 		  	<label>
@@ -61,62 +51,35 @@
 	<p class="text title-tag-line">Create your new account.</p>
 	<form method="POST" action="{{ route('register') }}">
             @csrf
-        <div class="form-group">
-            <label class="info-title" for="exampleInputEmail1">Name <span>*</span></label>
-             <input type="text" id="name" name="name" class="form-control unicase-form-control text-input" >
-             @error('name')
-             <span class="invalid-feedback" role="alert">
-                 <strong>{{ $message }}</strong>
-             </span>
-             @enderror
-         </div>
-		<div class="form-group">
-	    	<label class="info-title" for="exampleInputEmail2">Email Address <span>*</span></label>
-	    	<input type="email" id="email" name="email" class="form-control unicase-form-control text-input" >
-            @error('email')
-             <span class="invalid-feedback" role="alert">
-                 <strong>{{ $message }}</strong>
-             </span>
-             @enderror
-	  	</div>
-        <div class="form-group">
-		    <label class="info-title" for="exampleInputEmail1">Phone Number <span>*</span></label>
-		    <input type="text" id="phone" name="phone" class="form-control unicase-form-control text-input" >
-            @error('phone')
-             <span class="invalid-feedback" role="alert">
-                 <strong>{{ $message }}</strong>
-             </span>
-             @enderror
-		</div>
-        <div class="form-group">
-		    <label class="info-title" for="exampleInputEmail1">Password <span>*</span></label>
-		    <input type="password" id="password" name="password" class="form-control unicase-form-control text-input" >
-            @error('password')
-             <span class="invalid-feedback" role="alert">
-                 <strong>{{ $message }}</strong>
-             </span>
-             @enderror
-		</div>
-         <div class="form-group">
-		    <label class="info-title" for="exampleInputEmail1">Confirm Password <span>*</span></label>
-		    <input type="password" id="password_confirmation" name="password_confirmation" class="form-control unicase-form-control text-input" >
-            @error('password_confirmation')
-             <span class="invalid-feedback" role="alert">
-                 <strong>{{ $message }}</strong>
-             </span>
-             @enderror
-		</div>
-	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
-	</form>
-	
-	
-</div>	
-<!-- create a new account -->			</div><!-- /.row -->
-		</div><!-- /.sigin-in-->
-		<!-- ============================================== BRANDS CAROUSEL ============================================== -->
-        @include('frontend.body.brands')
-<!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
-</div><!-- /.body-content -->
 
+            <div>
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            </div>
 
-@endsection
+            <div class="mt-4">
+                <x-label for="password" value="{{ __('Password') }}" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+            </div>
+
+            <div class="block mt-4">
+                <label for="remember_me" class="flex items-center">
+                    <x-checkbox id="remember_me" name="remember" />
+                    <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                </label>
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
+                    </a>
+                @endif
+
+                <x-button class="ms-4">
+                    {{ __('Log in') }}
+                </x-button>
+            </div>
+        </form>
+    </x-authentication-card>
+</x-guest-layout>
