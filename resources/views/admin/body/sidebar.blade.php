@@ -34,7 +34,7 @@ $route = Route::current()->getName();
         </li>  
 		
         <li class="treeview {{ ($prefix == '/brand') ? 'active' : '' }}">
-          <a href="#">
+          <a href="{{ url('/admin/brands/brand_view') }}">
             <i data-feather="message-circle"></i>
             <span>Brands</span>
             <span class="pull-right-container">
