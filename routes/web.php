@@ -130,8 +130,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/admin/admin_master', function () {
-        return view('admin.admin_master');
-    })->name('admin_dashboard');
+        return view('admin.dashboard');
+    })->name('dashboard');
 });
 
 ## Middleware for user

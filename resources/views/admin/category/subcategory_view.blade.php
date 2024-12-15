@@ -1,4 +1,4 @@
-@include('admin.admin_master')
+@extends('admin.admin_master')
 @section('content')
 
 
