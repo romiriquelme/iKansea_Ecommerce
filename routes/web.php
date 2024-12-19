@@ -5,7 +5,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
@@ -45,23 +44,6 @@ Route::post('/admin/profile/update', [AdminProfileController::class, 'adminProfi
 Route::get('/admin/change/password', [AdminProfileController::class, 'adminChangePassword'])->name('admin.change.password');
 
 Route::post('/admin/password/update', [AdminProfileController::class, 'adminUpdatePassword'])->name('admin.password.update');
-
-
-
-
-
-Route::prefix('brand')->group(function(){
-
-    Route::get('/view', [BrandController::class, 'viewBrand'])->name('all.brand');  
-
-    Route::post('/store', [BrandController::class, 'brandStore'])->name('brand.store'); 
-    
-    Route::get('/edit/{id}', [BrandController::class, 'brandEdit'])->name('brand.edit'); 
-
-    Route::post('/update', [BrandController::class, 'brandUpdate'])->name('brand.update'); 
-
-    Route::get('/delete/{id}', [BrandController::class, 'brandDelete'])->name('brand.delete');
-});
 
 
 
@@ -131,7 +113,7 @@ Route::middleware([
 ])->group(function () {
     Route::get('/admin/admin_master', function () {
         return view('admin.dashboard');
-    })->name('dashboard');
+    })->name('admin_dashboard');
 });
 
 ## Middleware for user

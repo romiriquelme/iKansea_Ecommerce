@@ -62,7 +62,7 @@
 										<div class="controls">
 											<select name="category_id" class="form-control">
                                             <option selected="" disabled="">-- Choose Category --</option>
-                                                @foreach ($categoies as $c)
+                                                @foreach ($categoies as $category)
                                                 <option value="{{ $category->id }}"> {{ $category->category_name_en }} </option>
                                                 @endforeach
                                             </select>

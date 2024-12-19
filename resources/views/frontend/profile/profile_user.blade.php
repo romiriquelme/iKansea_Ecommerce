@@ -31,19 +31,19 @@
 
                          <div class="form-group">
                               <label class="info-title">Email</label>
-                               <input type="email" name="email" value="{{ $user->name }}" class="form-control unicase-form-control text-input" >
+                               <input type="email" name="email" value="{{ $user->email }}" class="form-control unicase-form-control text-input" >
                          </div>`
 
                          
                          <div class="form-group">
                               <label class="info-title">Phone</label>
-                               <input type="text" name="phone" value="{{ $user->name }}" class="form-control unicase-form-control text-input" >
+                               <input type="text" name="phone" value="{{ $user->phone }}" class="form-control unicase-form-control text-input" >
                          </div>`
 
                          
                          <div class="form-group">
                               <label class="info-title">Photo</label>
-                               <input type="file" name="profile_photo_path" value="{{ $user->name }}" class="form-control unicase-form-control text-input" >
+                               <input type="file" name="profile_photo_path" class="form-control unicase-form-control text-input" >
                          </div>`
                          
                          <div class="form-group">

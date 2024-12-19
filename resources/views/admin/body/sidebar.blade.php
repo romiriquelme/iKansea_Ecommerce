@@ -32,19 +32,6 @@ $route = Route::current()->getName();
 			<span>Dashboard</span>
           </a>
         </li>  
-		
-        <li class="treeview {{ ($prefix == '/brand') ? 'active' : '' }}">
-          <a href="{{ url('/admin/brands/brand_view') }}">
-            <i data-feather="message-circle"></i>
-            <span>Brands</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route ('all.brand') }}"><i class="{{ ($route == 'all.brand') ? 'active' : '' }}"></i>All Brands</a></li>
-          </ul>
-        </li> 
 		  
         <li class="treeview {{ ($prefix == '/category') ? 'active' : '' }}">
           <a href="#">

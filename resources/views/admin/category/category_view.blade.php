@@ -1,51 +1,56 @@
 @extends('admin.admin_master')
 @section('content')
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
 <section class="content">
 	<div class="row">
-		<div class="col-8">
-			 <div class="box">
-				<div class="box-header with-border">
-				  <h3 class="box-title">Category List</h3>
-				</div>
-				<!-- /.box-header -->
-				<div class="box-body">
-					<div class="table-responsive">
-					  <table id="example1" class="table table-bordered table-striped">
-						<thead>
-							<tr>
-								<th>Category icon</th>
-								<th>Category En</th>
-								<th>Category Ind</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-                            @foreach($category as $item)
-							<tr>
-								<td>
-                                    <i class="{{ $item->category_icon }}"></i>
-                                </td>
-								<td>{{ $item->category_name_en }}</td>
-								<td>{{ $item->category_name_ind }}</td>
+	<div class="col-8">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Category List</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="table-responsive">
+                <table id="categoryTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Category Icon</th>
+                            <th>Category (English)</th>
+                            <th>Category (Indonesian)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($category as $item)
+                            <tr>
+                                <td><i class="{{ $item->category_icon }}"></i></td>
+                                <td>{{ $item->category_name_en }}</td>
+                                <td>{{ $item->category_name_ind }}</td>
                                 <td>
-                                    <a href="{{ route('category.edit', $item->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                    <a href="{{ route('category.delete', $item->id) }}" class="btn btn-danger" id="delete"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ route('category.edit', $item->id) }}" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a href="{{ route('category.delete', $item->id) }}" class="btn btn-danger btn-sm" id="delete">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                 </td>
-							</tr>
-                            @endforeach
-						</tbody>
-					  </table>
-					</div>
-				</div>
-				<!-- /.box-body -->
-			</div>
-			  <!-- /.box -->
-
-       
-		</div>
-			<!-- /.col -->
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <!-- Tambahkan Pagination -->
+            <div class="mt-3 d-flex justify-content-center">
+                {{ $category->links() }}
+            </div>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+</div>
 
             <div class="col-4">
 
@@ -105,5 +110,20 @@
 		  </div>
 </div>
 <!-- /.content-wrapper -->
+
+<!-- Tambahkan Script DataTables -->
+
+<script>
+   $(document).ready(function() {
+            $('#categoryTable').DataTable({
+                paging: true,
+                searching: true,
+                info: true,
+                lengthChange: true,
+                ordering: true
+            });
+        });
+
+</script>
 
 @endsection

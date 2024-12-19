@@ -10,7 +10,7 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function viewCategory(){
-        $category = Category::latest()->get();
+        $category = Category::paginate(10);// Menampilkan 10 data per halaman
         return view('admin.category.category_view',compact('category'));
     }
 

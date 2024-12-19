@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\SubSubCategory;
-use App\Models\Brand;
 use Carbon\Carbon;
 use App\Models\MultiImg;
-use Intervention\Image\Image;
+use Intervention\Image\ImageManagerStatic as Image;
+
 
 use App\Models\Products as Product;
 
@@ -19,8 +19,7 @@ class ProductController extends Controller
     public function addProduct(){
         $categories = Category::latest()->get();
         $subcategories = SubCategory::latest()->get();
-        $brands = Brand::latest()->get();
-        return view('admin.product.add_product',compact('categories','subcategories', 'brands'));
+        return view('admin.product.add_product',compact('categories','subcategories'));
     }
 
     public function productStore(Request $request){
@@ -41,7 +40,6 @@ class ProductController extends Controller
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
             'subsubcategory_id' => $request->subsubcategory_id,
-            'brand_id' => $request->brand_id,
             'product_tags_en' => $request->product_tags_en,
             'product_tags_ind' => $request->product_tags_ind,
             'selling_price' => $request->selling_price,

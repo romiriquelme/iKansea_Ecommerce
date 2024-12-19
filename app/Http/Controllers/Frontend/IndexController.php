@@ -48,7 +48,7 @@ class IndexController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('dashboard')->with($notification);
+        return redirect()->route('user.profile.edit')->with($notification);
 
     }
 
