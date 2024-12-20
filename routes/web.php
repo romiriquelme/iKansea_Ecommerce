@@ -99,7 +99,25 @@ Route::prefix('product')->group(function(){
 
     Route::get('/addProduct', [ProductController::class, 'addProduct'])->name('add.product');  
 
+    Route::get('/manage', [ProductController::class, 'manageProduct'])->name('manage.product');
+
     Route::post('/store', [ProductController::class, 'productStore'])->name('store.product');
+
+    Route::get('/edit/{id}', [ProductController::class, 'productEdit'])->name('product.edit');
+
+    Route::post('/update/data/{id}', [ProductController::class, 'updateDataProduct'])->name('product.data.update');
+
+    Route::post('/update/images', [ProductController::class, 'updateDataImages'])->name('images.update');
+
+    Route::post('/update/thumbnail/{id}', [ProductController::class, 'updateThumbnail'])->name('thumbnail.update');
+
+    Route::get('/imgs/delete/{id}', [ProductController::class, 'imgsDelete'])->name('product.img.delete');
+
+    Route::get('/active/{id}', [ProductController::class, 'productActive'])->name('product.active');
+
+    Route::get('/inactive/{id}', [ProductController::class, 'productInactive'])->name('product.inactive');
+
+    Route::get('/delete/{id}', [ProductController::class, 'productDelete'])->name('product.delete');
 });
 
 
