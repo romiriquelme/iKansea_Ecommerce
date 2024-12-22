@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\SliderController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -118,6 +119,24 @@ Route::prefix('product')->group(function(){
     Route::get('/inactive/{id}', [ProductController::class, 'productInactive'])->name('product.inactive');
 
     Route::get('/delete/{id}', [ProductController::class, 'productDelete'])->name('product.delete');
+});
+
+Route::prefix('slider')->group(function(){
+
+    Route::get('/view', [SliderController::class, 'viewSlider'])->name('manage.slider');
+
+    Route::post('/store', [SliderController::class, 'sliderStore'])->name('slider.store');
+
+    Route::get('/edit/{id}', [SliderController::class, 'sliderEdit'])->name('slider.edit');
+
+    Route::post('/update/{id}', [SliderController::class, 'sliderUpdate'])->name('slider.update');
+
+    Route::get('/active/{id}', [SliderController::class, 'sliderActive'])->name('slider.active');
+
+    Route::get('/inactive/{id}', [SliderController::class, 'sliderInactive'])->name('slider.inactive');
+
+    Route::get('/delete/{id}', [SliderController::class, 'sliderDelete'])->name('slider.delete');
+
 });
 
 
