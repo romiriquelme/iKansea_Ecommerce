@@ -18,7 +18,7 @@ class SubCategoryController extends Controller
     }
 
 
-    public function subCategory(Request $request){
+    public function subCategoryStore(Request $request){
         $request->validate([
             'subcategory_name_en' => 'required',
             'subcategory_name_ind' => 'required',

@@ -9,7 +9,7 @@ use App\Models\SubCategory;
 use App\Models\SubSubCategory;
 use Carbon\Carbon;
 use App\Models\MultiImg;
-use Intervention\Image as Images;
+use Image;
 
 
 use App\Models\Products as Product;
@@ -26,7 +26,7 @@ class ProductController extends Controller
         
         $image = $request->file('product_thumbnail');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Images::make($image)->resize(917,1000)->save('upload/product/thumbnail/'.$name_gen);
+        Image::make($image)->resize(917,1000)->save('upload/product/thumbnail/'.$name_gen);
         $save_url = 'upload/product/thumbnail/'.$name_gen;
 
         $product_id = Product::insertGetId([
@@ -60,7 +60,7 @@ class ProductController extends Controller
         $images = $request->file('multiple_image');
         foreach($images as $img){
             $make_img = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-            Images::make($img)->resize(917,1000)->save('upload/product/images/'.$make_img);
+            Image::make($img)->resize(917,1000)->save('upload/product/images/'.$make_img);
             $save_img = 'upload/product/images/'.$make_img;
 
             MultiImg::insert([
@@ -137,7 +137,7 @@ class ProductController extends Controller
             $imgDel = MultiImg::findOrFail($id);
             unlink($imgDel->photo_name);
             $make_img = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-            Images::make($img)->resize(917,1000)->save('upload/product/images/'.$make_img);
+            Image::make($img)->resize(917,1000)->save('upload/product/images/'.$make_img);
             $save_img = 'upload/product/images/'.$make_img;
 
             MultiImg::where('id',$id)->update([

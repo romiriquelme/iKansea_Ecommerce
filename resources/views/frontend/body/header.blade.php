@@ -6,9 +6,11 @@
       <div class="header-top-inner">
         <div class="cnt-account">
           <ul class="list-unstyled">
-            <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
-            <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
-            <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+            <li><a href="#"><i class="icon fa fa-user"></i>
+              @if(session()->get('language') == 'ind') Akun Saya @else My Account @endif
+            </a></li>
+            <li><a href="{{ route('wishlist') }}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+            <li><a href="{{ route('mycart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
             <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
 
             @auth 
@@ -31,13 +33,22 @@
                 <li><a href="#">GBP</a></li>
               </ul>
             </li>
-            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
+            <li class="dropdown dropdown-small">
+              <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                <span class="value">
+                @if(session()->get('language') == 'ind') Bahasa @else Language @endif
+                </span>
+                <b class="caret"></b>
+              </a>
               <ul class="dropdown-menu">
-                <li><a href="#">English</a></li>
-                <li><a href="#">French</a></li>
-                <li><a href="#">German</a></li>
+              @if(session()->get('language') == 'ind')
+                <li><a href="{{ route('language.en') }}">English</a></li>
+              @else
+                <li><a href="{{ route('language.ind') }}">Indonesia</a></li>
+              @endif
               </ul>
             </li>
+
           </ul>
           <!-- /.list-unstyled --> 
         </div>
@@ -91,29 +102,19 @@
           <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
             <div class="items-cart-inner">
               <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
-              <div class="basket-item-count"><span class="count">2</span></div>
-              <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">$</span><span class="value">600.00</span> </span> </div>
+              <div class="basket-item-count"><span class="count" id="cartQty"></span></div>
+              <div class="total-price-basket"> <span class="lbl">cart -</span> <span class="total-price"> <span class="sign">Rp. </span><span class="value" id="cartSubTotal"></span> </span> </div>
             </div>
             </a>
             <ul class="dropdown-menu">
               <li>
-                <div class="cart-item product-summary">
-                  <div class="row">
-                    <div class="col-xs-4">
-                      <div class="image"> <a href="detail.html"><img src="assets/images/cart.jpg" alt=""></a> </div>
-                    </div>
-                    <div class="col-xs-7">
-                      <h3 class="name"><a href="index.php?page-detail">Simple Product</a></h3>
-                      <div class="price">$600.00</div>
-                    </div>
-                    <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
-                  </div>
-                </div>
-                <!-- /.cart-item -->
-                <div class="clearfix"></div>
-                <hr>
+
+
+              <div id="miniCart"></div>
+
+
                 <div class="clearfix cart-total">
-                  <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>$600.00</span> </div>
+                  <div class="pull-right"> <span class="text">Sub Total :</span><span class='price' id="cartSubTotal"></span> </div>
                   <div class="clearfix"></div>
                   <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> </div>
                 <!-- /.cart-total--> 
@@ -147,142 +148,62 @@
           <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
             <div class="nav-outer">
               <ul class="nav navbar-nav">
-                <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a> </li>
-                <li class="dropdown yamm mega-menu"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Fish</a>
-                  <ul class="dropdown-menu container">
-                    <li>
-                      <div class="yamm-content ">
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Freshwater</h2>
-                            <ul class="links">
-                              <li><a href="#">Catfish</a></li>
-                              <li><a href="#">Carp</a></li>
-                              <li><a href="#">Bass</a></li>
-                              <li><a href="#">Perch</a></li>
-                              <li><a href="#">Trout</a></li>
-                              <li><ap href="#">Nila</a></li>
-                              <li><a href="#">Mujaer</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Sea</h2>
-                            <ul class="links">
-                              <li><a href="#">Lobster</a></li>
-                              <li><a href="#">Tuna</a></li>
-                              <li><a href="#">Salmon</a></li>
-                              <li><a href="#">Mackerel</a></li>
-                              <li><a href="#">Halibut</a></li>
-                              <li><a href="#">Sole</a></li>
-                              <li><a href="#">Ray</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Crab</h2>
-                            <ul class="links">
-                              <li><a href="#">Rajungan</a></li>
-                              <li><a href="#">Soka</a></li>
-                              <li><a href="#">Bakau</a></li>
-                              <li><a href="#">Kenari</a></li>
-                              <li><a href="#">Yuyu Crab</a></li>
-                              <li><a href="#">Fiddler</a></li>
-                              <li><a href="#">Japan Spider Crab</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                            <h2 class="title">Jellyfish</h2>
-                            <ul class="links">
-                              <li><a href="#">Moon Jellyfish</a></li>
-                              <li><a href="#">Sea Nettle</a></li>
-                              <li><a href="#">Box Jellyfish</a></li>
-                              <li><a href="#">Lion Mane</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="assets/images/banners/top-menu-banner.jpg" alt=""> </div>
-                          <!-- /.yamm-content --> 
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
+                <li class="active dropdown yamm-fw"> <a href="{{ url('/')}}" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">@if(session()->get('language') == 'ind') Beranda @else Home @endif</a> </li>
+                @php 
+                  $categories = App\Models\Category::orderBy('category_name_en', 'ASC')->get();
+                @endphp
+
+                @foreach($categories as $category)
+                <li class="dropdown yamm mega-menu">
+                    <a href="" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">
+                        @if(session()->get('language') == 'ind')
+                            {{ $category->category_name_ind }}
+                        @else
+                            {{ $category->category_name_en }}
+                        @endif
+                    </a>
+                    <ul class="dropdown-menu container">
+                        <li>
+                            <div class="yamm-content">
+                                <div class="row">
+                                    @php 
+                                        $subcategories = App\Models\SubCategory::where('category_id', $category->id)->orderBy('subcategory_name_en', 'ASC')->get();
+                                    @endphp
+
+                                    @foreach($subcategories as $subcategory)
+                                    <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
+                                        <h2 class="title">
+                                            @if(session()->get('language') == 'ind')
+                                                {{ $subcategory->subcategory_name_ind }}
+                                            @else
+                                                {{ $subcategory->subcategory_name_en }}
+                                            @endif
+                                        </h2>
+                                        <ul class="links">
+                                            @php 
+                                                $subsubcategories = App\Models\SubSubCategory::where('subcategory_id', $subcategory->id)->orderBy('subsubcategory_name_en', 'ASC')->get();
+                                            @endphp
+
+                                            @foreach($subsubcategories as $subsubcategory)
+                                            <li><a href="#">{{ $subsubcategory->subsubcategory_name_en }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endforeach
+                                    <!-- /.col -->
+
+                                    <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image">
+                                        <img class="img-responsive" src="assets/images/banners/top-menu-banner.jpg" alt="">
+                                    </div>
+                                    <!-- /.yamm-content --> 
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
-                <li class="dropdown mega-menu"> 
-                <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Fishing Equipment<span class="menu-label hot-menu hidden-xs">hot</span> </a>
-                  <ul class="dropdown-menu container">
-                    <li>
-                      <div class="yamm-content">
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Fishing Rod</h2>
-                            <ul class="links">
-                              <li><a href="#">Joran Spinning Rod</a></li>
-                              <li><a href="#">Joran Baitcasting</a></li>
-                              <li><a href="#">Joran Fly</a></li>
-                              <li><a href="#">Joran Surf Casting</a></li>
-                              <li><a href="#">Joran Telescopic</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Fish Bait</h2>
-                            <ul class="links">
-                              <li><a href="#">Worms</a></li>
-                              <li><a href="#">Nightcrawlers</a></li>
-                              <li><a href="#">Grubs</a></li>
-                              <li><a href="#">Mealworms</a></li>
-                              <li><a href="#">Clam</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="assets/images/banners/banner-side.png"></a> </div>
-                        </div>
-                        <!-- /.row --> 
-                      </div>
-                      <!-- /.yamm-content --> </li>
-                  </ul>
-                </li>
-                <!-- <li class="dropdown hidden-sm"> <a href="category.html">Health & Beauty <span class="menu-label new-menu hidden-xs">new</span> </a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Watches</a> </li>
-                <li class="dropdown"> <a href="contact.html">Jewellery</a> </li>
-                <li class="dropdown"> <a href="contact.html">Shoes</a> </li>
-                <li class="dropdown"> <a href="contact.html">Kids & Girls</a> </li> -->
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
-                  <ul class="dropdown-menu pages">
-                    <li>
-                      <div class="yamm-content">
-                        <div class="row">
-                          <div class="col-xs-12 col-menu">
-                            <ul class="links">
-                              <li><a href="home.html">Home</a></li>
-                              <li><a href="category.html">Category</a></li>
-                              <li><a href="detail.html">Detail</a></li>
-                              <li><a href="shopping-cart.html">Shopping Cart Summary</a></li>
-                              <li><a href="checkout.html">Checkout</a></li>
-                              <li><a href="blog.html">Blog</a></li>
-                              <li><a href="blog-details.html">Blog Detail</a></li>
-                              <li><a href="contact.html">Contact</a></li>
-                              <li><a href="sign-in.html">Sign In</a></li>
-                              <li><a href="my-wishlist.html">Wishlist</a></li>
-                              <li><a href="terms-conditions.html">Terms and Condition</a></li>
-                              <li><a href="track-orders.html">Track Orders</a></li>
-                              <li><a href="product-comparison.html">Product-Comparison</a></li>
-                              <li><a href="faq.html">FAQ</a></li>
-                              <li><a href="404.html">404</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
+                @endforeach
+
+
                 <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
               </ul>
               <!-- /.navbar-nav -->

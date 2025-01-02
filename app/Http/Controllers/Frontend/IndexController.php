@@ -7,12 +7,37 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Category;
+use App\Models\Slider;
+use App\Models\Products;
+use App\Models\MultiImg;
 
 
 class IndexController extends Controller
 {
     public function index(){
-        return view('frontend.index');
+        $sliders = Slider::where('status',1)->limit(3)->get();
+        $categories = Category::orderBy('category_name_en','ASC')->get();
+        $products = Products::where('status',1)->OrderBy('id','DESC')->limit(6)->get();
+        $featured = Products::where('featured',1)->OrderBy('id','DESC')->limit(6)->get();
+        $hotDeals = Products::where('hot_deals',1)->OrderBY('id','DESC')->limit(3)->get();
+        $specialOffer = Products::where('special_offer',1)->OrderBy('id','DESC')->limit(3)->get();
+        $specialDeals = Products::where('special_deals',1)->OrderBy('id','DESC')->limit(3)->get();
+
+        $skip_category_0 = Category::skip(0)->first();
+        $skip_product_0 = Products::where('status',1)->where('category_id',$skip_category_0->id)->OrderBy('id','DESC')->get();
+
+        return view('frontend.index',compact('categories','sliders', 'products', 'featured', 'hotDeals', 'specialOffer', 'specialDeals', 'skip_category_0', 'skip_product_0'));
+    }
+
+    public function detail($id,$slug){
+        $products = Products::findOrFail($id);
+        $multiImg = MultiImg::where('product_id',$id)->get();
+
+        $relatedProducts = Products::where('category_id',$products->category_id)->where('id','!=',$id)->orderBy('id','DESC')->get();
+
+        $hotDeals = Products::where('hot_deals',1)->OrderBY('id','DESC')->limit(3)->get();
+        return view('frontend.product.detail_product',compact('products', 'multiImg', 'relatedProducts', 'hotDeals'));
     }
 
     public function userLogout(){
@@ -77,4 +102,13 @@ class IndexController extends Controller
             return redirect()->back();
         }
     }
+
+    // get data product by ajax
+    public function getProductModal($id){
+        $product = Products::with('category')->findOrFail($id);
+        return response()->json(array(
+            'product' => $product  
+        ));
+    }
+
 }
