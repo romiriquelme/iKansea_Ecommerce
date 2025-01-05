@@ -16,6 +16,8 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\ShippingAreaController;
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -56,6 +58,10 @@ Route::middleware(['auth:admin'])->group(function(){
     Route::get('/admin/change/password', [AdminProfileController::class, 'adminChangePassword'])->name('admin.change.password');
         
     Route::post('/admin/password/update', [AdminProfileController::class, 'adminUpdatePassword'])->name('admin.password.update');
+
+    });
+
+
 
     Route::prefix('admin')->group(function(){
         
@@ -164,6 +170,24 @@ Route::middleware(['auth:admin'])->group(function(){
             Route::get('/delete/{id}', [CouponController::class, 'deleteCoupon'])->name('coupon.delete');
         
         });
+
+        Route::prefix('shipping')->group(function(){
+        
+            Route::get('/view', [ShippingAreaController::class, 'viewShipping'])->name('manage.area');
+
+            Route::post('/get-regency', [ShippingAreaController::class, 'getRegency'])->name('get.regency');
+
+            Route::post('/get-district', [ShippingAreaController::class, 'getDistrict'])->name('get.district');
+
+            Route::post('/get-village', [ShippingAreaController::class, 'getVillage'])->name('get.village');
+
+            Route::post('/store', [ShippingAreaController::class, 'shippingStore'])->name('shipping.store');
+
+            Route::get('/delete/{id}', [ShippingAreaController::class, 'deleteShipping'])->name('shipping.delete');
+
+            Route::get('/edit/{id}', [ShippingAreaController::class, 'editShipping'])->name('shipping.edit');
+
+            Route::post('/update/{id}', [ShippingAreaController::class, 'updateShipping'])->name('shipping.update');
  
     });
 });

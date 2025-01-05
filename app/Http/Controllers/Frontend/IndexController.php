@@ -25,7 +25,11 @@ class IndexController extends Controller
         $specialDeals = Products::where('special_deals',1)->OrderBy('id','DESC')->limit(3)->get();
 
         $skip_category_0 = Category::skip(0)->first();
-        $skip_product_0 = Products::where('status',1)->where('category_id',$skip_category_0->id)->OrderBy('id','DESC')->get();
+            if ($skip_category_0) {
+                $skip_product_0 = Products::where('status',1)->where('category_id',$skip_category_0->id)->OrderBy('id','DESC')->get();
+            } else {
+                $skip_product_0 = []; // or some other default value
+            }
 
         return view('frontend.index',compact('categories','sliders', 'products', 'featured', 'hotDeals', 'specialOffer', 'specialDeals', 'skip_category_0', 'skip_product_0'));
     }

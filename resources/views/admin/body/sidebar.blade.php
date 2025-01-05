@@ -84,6 +84,18 @@ $route = Route::current()->getName();
             <li class="{{ ($route == 'manage.coupon') ? 'active' : '' }}"><a href="{{ route ('manage.coupon') }}"><i class="ti-more"></i>Manage Coupons</a></li>
             </ul>
         </li>
+
+        <li class="treeview {{ ($prefix == '/shipping') ? 'active' : '' }}">
+          <a href="#">
+            <i data-feather="tag"></i> <span>Shipping Area</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ ($route == 'manage.area') ? 'active' : '' }}"><a href="{{ route ('manage.area') }}"><i class="ti-more"></i>Manage Area</a></li>
+            </ul>
+        </li>
 		 
         <li class="header nav-small-cap">User Interface</li>
 		  
