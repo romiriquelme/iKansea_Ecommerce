@@ -281,5 +281,9 @@ Route::get('/mycart/remove/{rowId}', [CartPageController::class, 'removeCart']);
 
 Route::post('/coupon-apply', [CartController::class, 'couponApply']);
 
+Route::get('/coupon-calcuation', [CartController::class, 'couponCalculation']);
+
+Route::get('/coupon-remove', [CartController::class, 'removeCoupon']);
+
 
 // end of route coupon
