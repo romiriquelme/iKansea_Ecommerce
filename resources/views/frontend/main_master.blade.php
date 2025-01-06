@@ -512,5 +512,46 @@
 			})
 		}
 	</script>
+
+
+// Function Coupon Apply
+
+<script>
+		function applyCoupon(){
+			let coupon_name = $('#coupon_name').val();
+			$.ajax({
+				type : 'POST',
+				dataType : 'json',
+				data : {coupon_name:coupon_name},
+				url : "{{ url('/coupon-apply')}}",
+				
+				success:function(data){
+
+					const Toastr = Swal.mixin({
+									toast: true,
+									position: "top-end",
+									showConfirmButton: false,
+									timer: 3000
+									});
+
+					if($.isEmptyObject(data.error)){
+						Toastr.fire({
+							type: 'success',
+							icon: "success",
+							title: data.success
+						});
+					}else{
+						Toastr.fire({
+							type: 'error',
+							icon: "success",
+							title: data.error
+						});
+				}
+			})
+		}
+
+</script>
+
+// End of Function Coupon Apply
 </body>
 </html> 

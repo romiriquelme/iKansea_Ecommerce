@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Products;
-use Cart;
-use Auth;
 use App\Models\Whislist;
+use App\Models\Coupon;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 use Carbon\Carbon;
+use Auth;
 
 class CartController extends Controller
 {
@@ -71,6 +73,17 @@ class CartController extends Controller
             }
         }else{
             return response()->json(['error' => 'At first login your account']);
+        }
+    }
+
+
+    public function couponApply(Request $request){
+        $coupon = Coupon::where('coupon_name', $request->coupon_name)->where('coupon_validity','>=', Carbon::now()->format('Y-m-d'))->first();
+
+        if($coupon){
+            return 'OK';
+        }else{
+            return response()->json(['error' => 'Coupon has expired']);
         }
     }
 

@@ -271,3 +271,15 @@ Route::get('/mycart/increment/{rowId}', [CartPageController::class, 'increment']
 Route::get('/mycart/decrement/{rowId}', [CartPageController::class, 'decrement']);
 
 Route::get('/mycart/remove/{rowId}', [CartPageController::class, 'removeCart']);
+
+
+
+
+
+
+// route coupon
+
+Route::post('/coupon-apply', [CartController::class, 'couponApply']);
+
+
+// end of route coupon
