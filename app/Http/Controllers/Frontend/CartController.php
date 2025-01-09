@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Products;
-use App\Models\Whislist;
+use App\Models\Wishlist;
 use App\Models\Coupon;
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Cart;
 use Illuminate\Support\Facades\Session;
+
+
+use App\Models\Province;
 
 use Carbon\Carbon;
 use Auth;
@@ -63,10 +66,10 @@ class CartController extends Controller
 
     public function addToWishlist(Request $request, $product_id){
         if(Auth::check()){
-            $exists = Whislist::where('user_id', Auth::id())->where('product_id', $product_id)->first();
+            $exists = Wishlist::where('user_id', Auth::id())->where('product_id', $product_id)->first();
 
             if(!$exists){
-                Whislist::insert([
+                Wishlist::insert([
                     'user_id' => Auth::id(),
                     'product_id' => $product_id,
                     'created_at' => carbon::now()
@@ -118,5 +121,39 @@ class CartController extends Controller
     public function removeCoupon(){
         Session::forget('coupon');
         return response()->json(['success' => 'Coupon removed successfully']);
+    }
+
+
+    public function checkoutCreate(){
+        if(Auth::check()){
+            if(Cart::total() > 0 ){
+
+                $carts = Cart::content();
+                $cartQty = Cart::count();
+                $total = Cart::subtotal();
+
+                $provinces = Province::all();
+
+                return view('Frontend.checkout.checkout_view', compact ('carts', 'cartQty', 'total', 'provinces'));
+
+            }else {
+
+                $notification = array(
+                    'message' => 'Cart is Empty',
+                    'alert-type' => 'alert',
+                );
+
+                return redirect()->to('/')->with($notification);
+            }
+
+        }else{
+
+            $notification = array(
+                'message' => 'Please login first',
+                'alert-type' => 'error',
+            );
+
+            return redirect()->route('/login')->with($notification);
+        }
     }
 }

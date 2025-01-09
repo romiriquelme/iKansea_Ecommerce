@@ -13,6 +13,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
+        "midtrans/midtrans-php": "^2.6",
         "surfsidemedia/shoppingcart": "^1.0"
     },
     "require-dev": {

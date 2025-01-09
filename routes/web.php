@@ -17,6 +17,7 @@ use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
+use App\Http\Controllers\User\CheckoutController;
 
 
 // Route::get('/', function () {
@@ -220,6 +221,8 @@ Route::middleware([
 // Route All Frontend
 
 
+
+
 Route::get('/', [IndexController::class, 'index'])->name('index');
     
 Route::get('/user/logout', [IndexController::class, 'userLogout'])->name('user.logout');
@@ -251,11 +254,17 @@ Route::post('/add/wishlist/{id}', [CartController::class, 'addToWishlist']);
 
 Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'User'], function(){
 
-    Route::get('/wishlist', [WishlistController::class, 'viewWishlist'])->name('wishlist');
-    
-    Route::get('/whislist/data' , [WishlistController::class, 'getWishlist']);
-    
-    Route::get('/remove/wishlist/{id}', [WishlistController::class, 'removeWishlist']);
+Route::get('/wishlist', [WishlistController::class, 'viewWishlist'])->name('wishlist');
+
+Route::get('/whislist/data' , [WishlistController::class, 'getWishlist']);
+
+Route::get('/remove/wishlist/{id}', [WishlistController::class, 'removeWishlist']);
+
+Route::get('/my-order', [CheckoutController::class, 'myOrders' ])->name('my.order');
+
+Route::get('/order-detail/{id}', [CheckoutController::class, 'OrderDetail' ])->name('order.detail');
+
+Route::get('/invoice/{id}', [CheckoutController::class, 'downloadInvoice' ])->name('invoice');
 
 
 
@@ -287,3 +296,16 @@ Route::get('/coupon-remove', [CartController::class, 'removeCoupon']);
 
 
 // end of route coupon
+
+
+// route checkout
+
+
+Route::get('/checkout', [CartController::class, 'checkoutCreate'])->name('checkout');
+
+Route::post('/checkout-detail', [CartController::class, 'checkoutDetail'])->name('checkout.detail');
+
+Route::post('/checkout-store', [CartController::class, 'checkoutStore'])->name('checkout-store');
+
+
+
