@@ -40,7 +40,7 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('order.detail', $order->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>View</a>
-                                    <a href="{{ route('invoice', $order->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-download"></i>Invoice</a>
+                                    <a href="{{ route('invoice', $order->id)}}" class="btn btn-sm btn-danger" target="_blank"><i class="fa fa-download"></i>Invoice</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Shipping;
 
-use Gloudemans\Shoppingcart\Cart;
+use Surfsidemedia\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
 use App\Models\Coupon;
 
@@ -18,18 +18,22 @@ use App\Models\Village;
 
 use App\Models\Order;
 use App\Models\OrderItem;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+
+use App\Models\PDF;
+
 
 
 class CheckoutController extends Controller
 {
     public function checkoutDetail(Request $request){
 
-        if(Session::has('coupon')){
+        if (Session::has('coupon')) {
             $total_amount = Session::get('coupon')['total_amount'];
-        }else{
-            $total_amount = (int)str_replace()Cart::subtotal();
+        } else {
+            // Assuming you want to convert the subtotal to an integer
+            $total_amount = (int)str_replace(',', '', Cart::subtotal());
         }
 
         $name = $request->name;
@@ -56,7 +60,6 @@ class CheckoutController extends Controller
             'notes' => $request->notes,
             'payment_type' => $request->payment_type,
             'transaction_id' => $request->transaction_id,
-            'phone' => $request->phone,
             'amount' => $total_amount,
             'invoice_no' => 'MS'.mt_rand(10000000000,99999999999),
             'order_date' => Carbon::now()->format('d F Y'),
@@ -154,6 +157,15 @@ class CheckoutController extends Controller
     public function downloadInvoice($id){
         $order = Order::with('province', 'regency', 'district', 'village')->where('id', $id)->where('user_id', Auth::id())->first();
         $orderItem = OrderItem::with('product')->where('order_id', $id)->orderBy('id', 'DESC')->get();
-        return view('frontend.invoice.view_invoice', compact('order', 'orderItem'));
+
+
+        // return view('frontend.invoice.view_invoice', compact('order', 'orderItem'));
+
+        $pdf = PDF::loadView('frontend.invoice.view_invoice', compact('order', 'orderItem'))->
+        setPaper('a4')->setOption([
+            'tempDir' => public_path(),
+            'chroot' => public_path(),
+        ]);
+        return $pdf->download('invoice.pdf');
     }
 }

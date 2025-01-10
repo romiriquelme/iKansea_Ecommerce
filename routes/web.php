@@ -18,6 +18,8 @@ use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\ReportController;
 
 
 // Route::get('/', function () {
@@ -191,6 +193,26 @@ Route::middleware(['auth:admin'])->group(function(){
             Route::post('/update/{id}', [ShippingAreaController::class, 'updateShipping'])->name('shipping.update');
  
     });
+
+
+    Route::prefix('order')->group(function(){
+        
+        Route::get('/', [OrderController::class, 'ordersView'])->name('manage.order');
+
+        Route::get('/detail/{id}', [OrderController::class, 'orderDetail'])->name('admin.detail.order');
+
+        Route::get('/invoice/{id}', [OrderController::class, 'downloadInvoice'])->name('admin.invoice');
+
+    });
+
+
+    Route::prefix('reports')->group(function(){
+        
+        Route::get('/reports', [ReportController::class, 'reportView'])->name('admin.reports');
+
+    });
+    
+
 });
 // Route::middleware('admin:admin')->group(function(){
 //     Route::get('admin/login', [AdminController::class, 'loginForm']);

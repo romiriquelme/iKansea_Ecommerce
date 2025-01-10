@@ -6,4 +6,6 @@ return [
     App\Providers\JetstreamServiceProvider::class,
     App\Providers\IndoRegionServiceProvider::class,
     App\Providers\ShoppingcartServiceProvider::class,
+    App\Providers\ServiceProvider::class,
+    App\Providers\PDF::class,
 ];
