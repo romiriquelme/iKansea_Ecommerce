@@ -199,7 +199,7 @@ Route::middleware(['auth:admin'])->group(function(){
         
         Route::get('/', [OrderController::class, 'ordersView'])->name('manage.order');
 
-        Route::get('/detail/{id}', [OrderController::class, 'orderDetail'])->name('admin.detail.order');
+        Route::get('/detail/{id}', [OrderController::class, 'ordersDetail'])->name('admin.detail.order');
 
         Route::get('/invoice/{id}', [OrderController::class, 'downloadInvoice'])->name('admin.invoice');
 

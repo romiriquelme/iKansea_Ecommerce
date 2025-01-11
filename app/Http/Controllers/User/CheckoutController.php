@@ -4,12 +4,12 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Shipping;
 
 use Surfsidemedia\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Session;
-use App\Models\Coupon;
 
+use App\Models\Coupon;
+use App\Models\Shipping;
 
 use App\Models\Province;
 use App\Models\Regency;
@@ -18,12 +18,11 @@ use App\Models\Village;
 
 use App\Models\Order;
 use App\Models\OrderItem;
-use Illuminate\Support\Facades\Auth;
+
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\PDF;
-
-
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class CheckoutController extends Controller
 {
@@ -161,7 +160,7 @@ class CheckoutController extends Controller
 
         // return view('frontend.invoice.view_invoice', compact('order', 'orderItem'));
 
-        $pdf = PDF::loadView('frontend.invoice.view_invoice', compact('order', 'orderItem'))->
+        $pdf = FacadePdf::loadView('frontend.user.invoice.view_invoice', compact('order', 'orderItem'))->
         setPaper('a4')->setOption([
             'tempDir' => public_path(),
             'chroot' => public_path(),
