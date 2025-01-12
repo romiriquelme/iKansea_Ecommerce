@@ -22,7 +22,7 @@
 					<p>Welcome to your account. Please sign in below.</p>
 					<div class="social-sign-in outer-top-xs">
 						<a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
-						<a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
+						<a href="#" class="twitter-sign-in"><i class="fa fa-google"></i> Sign In with Google</a>
 					</div>
 					<form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
 						@csrf

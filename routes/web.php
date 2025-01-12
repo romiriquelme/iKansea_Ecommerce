@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Backend\UsersController;
 
 
 // Route::get('/', function () {
@@ -209,6 +210,18 @@ Route::middleware(['auth:admin'])->group(function(){
     Route::prefix('reports')->group(function(){
         
         Route::get('/reports', [ReportController::class, 'reportView'])->name('admin.reports');
+
+        Route::post('/search-by-date', [ReportController::class, 'reportByDate'])->name('admin.search.by.date');
+
+        Route::post('/search-by-month', [ReportController::class, 'reportByMonth'])->name('admin.search.by.month');
+
+        Route::post('/search-by-year', [ReportController::class, 'reportByYear'])->name('admin.search.by.year');
+
+    });
+
+    Route::prefix('users')->group(function(){
+        
+        Route::get('/', [UsersController::class, 'userView'])->name('admin.user');
 
     });
     
