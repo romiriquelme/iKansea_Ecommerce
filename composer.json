@@ -9,6 +9,7 @@
         "azishapidin/indoregion": "^3.0",
         "barryvdh/laravel-dompdf": "^3.0",
         "intervention/image": "^3.10",
+        "intervention/image-laravel": "^1.3",
         "laravel/framework": "^11.9",
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.0",

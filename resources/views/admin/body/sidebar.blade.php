@@ -105,7 +105,7 @@ $route = Route::current()->getName();
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ ($route == 'manage.order') ? 'active' : '' }}"><a href="{{ route ('manage.area') }}"><i class="ti-more"></i>Manage Order</a></li>
+            <li class="{{ ($route == 'manage.order') ? 'active' : '' }}"><a href="{{ route ('manage.order') }}"><i class="ti-more"></i>Manage Order</a></li>
             </ul>
         </li>
 

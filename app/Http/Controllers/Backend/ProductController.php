@@ -9,7 +9,7 @@ use App\Models\SubCategory;
 use App\Models\SubSubCategory;
 use Carbon\Carbon;
 use App\Models\MultiImg;
-use Image;
+use Intervention\Image\Laravel\Facades\Image;
 
 
 use App\Models\Products as Product;
@@ -23,11 +23,12 @@ class ProductController extends Controller
     }
 
     public function productStore(Request $request){
+        $request->validate([ 'product_name_en' => 'required|string|max:255', 'product_name_ind' => 'required|string|max:255', 'product_code' => 'required|string|max:255', 'product_qty' => 'required|integer', 'product_thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 'category_id' => 'required|integer', 'subcategory_id' => 'required|integer', 'subsubcategory_id' => 'required|integer', 'product_tags_en' => 'required|string|max:255', 'product_tags_ind' => 'required|string|max:255', 'selling_price' => 'required|numeric', 'short_descp_en' => 'required|string', 'short_descp_ind' => 'required|string', 'long_descp_en' => 'required|string', 'long_descp_ind' => 'required|string', ]);
         
         $image = $request->file('product_thumbnail');
-        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(917,1000)->save('upload/product/thumbnail/'.$name_gen);
-        $save_url = 'upload/product/thumbnail/'.$name_gen;
+        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension(); 
+        Image::read($image)->resize(917, 1000)->save('upload/product/thumbnail/' . $name_gen); 
+        $save_url = 'upload/product/thumbnail/' . $name_gen;
 
         $product_id = Product::insertGetId([
             'product_name_en' => $request->product_name_en,
@@ -60,7 +61,7 @@ class ProductController extends Controller
         $images = $request->file('multiple_image');
         foreach($images as $img){
             $make_img = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-            Image::make($img)->resize(917,1000)->save('upload/product/images/'.$make_img);
+            Image::read($img)->resize(917,1000)->save('upload/product/images/'.$make_img);
             $save_img = 'upload/product/images/'.$make_img;
 
             MultiImg::insert([
@@ -137,7 +138,7 @@ class ProductController extends Controller
             $imgDel = MultiImg::findOrFail($id);
             unlink($imgDel->photo_name);
             $make_img = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-            Image::make($img)->resize(917,1000)->save('upload/product/images/'.$make_img);
+            Image::read($img)->resize(917,1000)->save('upload/product/images/'.$make_img);
             $save_img = 'upload/product/images/'.$make_img;
 
             MultiImg::where('id',$id)->update([
@@ -161,7 +162,7 @@ class ProductController extends Controller
 
         $image = $request->file('product_thambnail');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Images::make($image)->resize(917,1000)->save('upload/product/thumbnail/'.$name_gen);
+        Images::read($image)->resize(917,1000)->save('upload/product/thumbnail/'.$name_gen);
         $save_url = 'upload/product/thumbnail/'.$name_gen;
 
         Product::findOrFail($id)->update([
