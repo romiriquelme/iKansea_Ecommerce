@@ -1126,9 +1126,9 @@
                   <!-- /.blog-post-image -->
                   
                   <div class="blog-post-info text-left">
-                    <h3 class="name"><a href="#">Dolorem eum fugiat quo voluptas nulla pariatur</a></h3>
-                    <span class="info">By Saraha Smith &nbsp;|&nbsp; 21 March 2016 </span>
-                    <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                    <h3 class="name"><a href="#">W0W</a></h3>
+                    <span class="info">By wahyu &nbsp;|&nbsp; 16/01/2025 </span>
+                    <p class="text"> hayati di laut, serta pentingnya menjaga kelestarian ekosistem laut dan ikan-ikan yang ada di dalamnya
                     <a href="#" class="lnk btn btn-primary">Read more</a> </div>
                   <!-- /.blog-post-info --> 
                   
@@ -1145,9 +1145,9 @@
                   <!-- /.blog-post-image -->
                   
                   <div class="blog-post-info text-left">
-                    <h3 class="name"><a href="#">Dolorem eum fugiat quo voluptas nulla pariatur</a></h3>
-                    <span class="info">By Saraha Smith &nbsp;|&nbsp; 21 March 2016 </span>
-                    <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                    <h3 class="name"><a href="#">123</a></h3>
+                    <span class="info">By habib &nbsp;|&nbsp; 17/01/2025 </span>
+                    <p class="text">Ikan adalah pilihan makanan rendah kalori, terutama jenis ikan tanpa lemak. Karena kandungan proteinnya yang tinggi dan lemak sehat, ikan dapat memberikan rasa kenyang yang lebih lama, membantu mengontrol nafsu makan dan mendukung penurunan berat badan atau menjaga berat badan sehat</p>
                     <a href="#" class="lnk btn btn-primary">Read more</a> </div>
                   <!-- /.blog-post-info --> 
                   
@@ -1164,9 +1164,9 @@
                   <!-- /.blog-post-image -->
                   
                   <div class="blog-post-info text-left">
-                    <h3 class="name"><a href="#">Dolorem eum fugiat quo voluptas nulla pariatur</a></h3>
-                    <span class="info">By Saraha Smith &nbsp;|&nbsp; 21 March 2016 </span>
-                    <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                    <h3 class="name"><a href="#">OREO</a></h3>
+                    <span class="info">By ROMI &nbsp;|&nbsp; 16/01/2025 </span>
+                    <p class="text">Beberapa jenis ikan, seperti salmon dan sarden, kaya akan vitamin A dan omega-3, yang dapat membantu menjaga kesehatan mata. Asam lemak omega-3 berperan dalam mencegah degenerasi makula yang berkaitan dengan usia (AMD), sebuah kondisi yang dapat menyebabkan kebutaan pada orang dewasa yang lebih tua</p>
                     <a href="#" class="lnk btn btn-primary">Read more</a> </div>
                   <!-- /.blog-post-info --> 
                   
