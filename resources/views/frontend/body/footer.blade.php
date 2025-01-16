@@ -83,7 +83,8 @@
               <li><a href="#" title="Blog">Blog</a></li>
               <li><a href="#" title="Company">Company</a></li>
               <li><a href="#" title="Investor Relations">Investor Relations</a></li>
-              <li class=" last"><a href="contact-us.html" title="Suppliers">Contact Us</a></li>
+              <li><a href="https://wa.me/6282316723896" title="Contact Us">Contact Us</a></li>
+
             </ul>
           </div>
           <!-- /.module-body --> 
