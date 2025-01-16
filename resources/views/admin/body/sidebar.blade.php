@@ -120,6 +120,19 @@ $route = Route::current()->getName();
             <li class="{{ ($route == 'admin.reports') ? 'active' : '' }}"><a href="{{ route ('admin.reports') }}"><i class="ti-more"></i>All Reports</a></li>
             </ul>
         </li>
+
+        <li class="treeview {{ ($prefix == '/users') ? 'active' : '' }}">
+          <a href="#">
+            <i data-feather="tag"></i> <span>Users</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="{{ ($route == 'admin.user') ? 'active' : '' }}"><a href="{{ route ('admin.user') }}"><i class="ti-more"></i>All Users</a></li>
+            </ul>
+        </li>
+
 		 
         <li class="header nav-small-cap">User Interface</li>
 		  
