@@ -233,24 +233,29 @@
         <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
           <div id="advertisement" class="advertisement">
             <div class="item">
-              <div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image"></div>
-              <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-              <div class="clients_author">John Doe <span>Abc Company</span> </div>
+              <div class="avatar">
+                <img src="{{ asset('upload/user_images/bandeng.jpg') }}" alt="Image">
+            </div>
+            <div class="testimonials">
+                <em>"</em>"Ikan segar, berkualitas tinggi, langsung dari laut ke dapur Anda! Kaya nutrisi dan rasa, sempurna untuk hidangan sehat keluarga. Pesan sekarang!"<em>"</em>
+            </div>
+            <div class="clients_author">Prince Syahrul <span>IkanSea</span></div>
+            
               <!-- /.container-fluid --> 
             </div>
             <!-- /.item -->
             
             <div class="item">
               <div class="avatar"><img src="assets/images/testimonials/member3.png" alt="Image"></div>
-              <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-              <div class="clients_author">Stephen Doe <span>Xperia Designs</span> </div>
+              <div class="testimonials"><em>"</em>"Nikmati kesegaran laut di meja Anda dengan ikan segar berkualitas tinggi! Langsung dari laut, kaya akan nutrisi seperti omega-3 dan protein, cocok untuk semua jenis hidangan favorit Anda. Pesan sekarang dan bawa kelezatan sehat ke dapur Anda hari ini!"<em>"</em></div>
+              <div class="clients_author">Taufik Ismail <span>IkaSea</span> </div>
             </div>
             <!-- /.item -->
             
             <div class="item">
               <div class="avatar"><img src="assets/images/testimonials/member2.png" alt="Image"></div>
-              <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-              <div class="clients_author">Saraha Smith <span>Datsun &amp; Co</span> </div>
+              <div class="testimonials"><em>"</em> "Segarkan hidangan Anda dengan ikan berkualitas tinggi! Kaya nutrisi, lezat, dan langsung dari laut ke meja Anda. Pesan sekarang untuk kelezatan yang sehat dan bergizi!"<em>"</em></div>
+              <div class="clients_author">King Fahmi <span>IkanSea</span> </div>
               <!-- /.container-fluid --> 
             </div>
             <!-- /.item --> 
@@ -1081,9 +1086,9 @@
                   <!-- /.blog-post-image -->
                   
                   <div class="blog-post-info text-left">
-                    <h3 class="name"><a href="#">Voluptatem accusantium doloremque laudantium</a></h3>
-                    <span class="info">By Jone Doe &nbsp;|&nbsp; 21 March 2016 </span>
-                    <p class="text">Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                    <h3 class="name"><a href="#">iKansea</a></h3>
+                    <span class="info">By King Fahmi &nbsp;|&nbsp; 15 January 2025 </span>
+                    <p class="text">"Segarkan hidangan Anda dengan ikan berkualitas tinggi! Kaya nutrisi, lezat, dan langsung dari laut ke meja Anda. Pesan sekarang untuk kelezatan yang sehat dan bergizi!"</p>
                     <a href="#" class="lnk btn btn-primary">Read more</a> </div>
                   <!-- /.blog-post-info --> 
                   
@@ -1100,9 +1105,9 @@
                   <!-- /.blog-post-image -->
                   
                   <div class="blog-post-info text-left">
-                    <h3 class="name"><a href="#">Dolorem eum fugiat quo voluptas nulla pariatur</a></h3>
-                    <span class="info">By Saraha Smith &nbsp;|&nbsp; 21 March 2016 </span>
-                    <p class="text">Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                    <h3 class="name"><a href="#">Mantap</a></h3>
+                    <span class="info">By Taufik Ismail &nbsp;|&nbsp; 16 January 2025 </span>
+                    <p class="text">"Nikmati kesegaran laut di meja Anda dengan ikan segar berkualitas tinggi! Langsung dari laut, kaya akan nutrisi seperti omega-3 dan protein, cocok untuk semua jenis hidangan favorit Anda. Pesan sekarang dan bawa kelezatan sehat ke dapur Anda hari ini!"</p>
                     <a href="#" class="lnk btn btn-primary">Read more</a> </div>
                   <!-- /.blog-post-info --> 
                   
@@ -1121,9 +1126,9 @@
                   <!-- /.blog-post-image -->
                   
                   <div class="blog-post-info text-left">
-                    <h3 class="name"><a href="#">Dolorem eum fugiat quo voluptas nulla pariatur</a></h3>
-                    <span class="info">By Saraha Smith &nbsp;|&nbsp; 21 March 2016 </span>
-                    <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                    <h3 class="name"><a href="#">W0W</a></h3>
+                    <span class="info">By wahyu &nbsp;|&nbsp; 16/01/2025 </span>
+                    <p class="text"> hayati di laut, serta pentingnya menjaga kelestarian ekosistem laut dan ikan-ikan yang ada di dalamnya
                     <a href="#" class="lnk btn btn-primary">Read more</a> </div>
                   <!-- /.blog-post-info --> 
                   
@@ -1140,9 +1145,9 @@
                   <!-- /.blog-post-image -->
                   
                   <div class="blog-post-info text-left">
-                    <h3 class="name"><a href="#">Dolorem eum fugiat quo voluptas nulla pariatur</a></h3>
-                    <span class="info">By Saraha Smith &nbsp;|&nbsp; 21 March 2016 </span>
-                    <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                    <h3 class="name"><a href="#">123</a></h3>
+                    <span class="info">By habib &nbsp;|&nbsp; 17/01/2025 </span>
+                    <p class="text">Ikan adalah pilihan makanan rendah kalori, terutama jenis ikan tanpa lemak. Karena kandungan proteinnya yang tinggi dan lemak sehat, ikan dapat memberikan rasa kenyang yang lebih lama, membantu mengontrol nafsu makan dan mendukung penurunan berat badan atau menjaga berat badan sehat</p>
                     <a href="#" class="lnk btn btn-primary">Read more</a> </div>
                   <!-- /.blog-post-info --> 
                   
@@ -1159,9 +1164,9 @@
                   <!-- /.blog-post-image -->
                   
                   <div class="blog-post-info text-left">
-                    <h3 class="name"><a href="#">Dolorem eum fugiat quo voluptas nulla pariatur</a></h3>
-                    <span class="info">By Saraha Smith &nbsp;|&nbsp; 21 March 2016 </span>
-                    <p class="text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium</p>
+                    <h3 class="name"><a href="#">OREO</a></h3>
+                    <span class="info">By ROMI &nbsp;|&nbsp; 16/01/2025 </span>
+                    <p class="text">Beberapa jenis ikan, seperti salmon dan sarden, kaya akan vitamin A dan omega-3, yang dapat membantu menjaga kesehatan mata. Asam lemak omega-3 berperan dalam mencegah degenerasi makula yang berkaitan dengan usia (AMD), sebuah kondisi yang dapat menyebabkan kebutaan pada orang dewasa yang lebih tua</p>
                     <a href="#" class="lnk btn btn-primary">Read more</a> </div>
                   <!-- /.blog-post-info --> 
                   
