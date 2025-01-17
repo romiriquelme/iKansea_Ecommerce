@@ -130,7 +130,7 @@ Route::middleware(['auth:admin'])->group(function(){
         
             Route::post('/update/data/{id}', [ProductController::class, 'updateDataProduct'])->name('product.data.update');
         
-            Route::post('/update/images', [ProductController::class, 'updateDataImages'])->name('images.update');
+            Route::post('/update/images', [ProductController::class, 'updateDataImages'])->name('image.update');
         
             Route::post('/update/thumbnail/{id}', [ProductController::class, 'updateThumbnail'])->name('thumbnail.update');
         
@@ -244,7 +244,7 @@ Route::middleware(['auth:admin'])->group(function(){
 ## Middleware for user
 Route::middleware([
     'auth:sanctum,web', 'verified'
-])->get('/dashboard', function () {
+])->get('/', function () {
     $id = Auth::user()->id;
     $user = User::find($id);
     return view('frontend.index', compact('user'));

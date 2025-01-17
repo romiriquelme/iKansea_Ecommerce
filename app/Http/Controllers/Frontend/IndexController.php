@@ -35,13 +35,13 @@ class IndexController extends Controller
     }
 
     public function detail($id,$slug){
-        $products = Products::findOrFail($id);
+        $product = Products::findOrFail($id);
         $multiImg = MultiImg::where('product_id',$id)->get();
 
-        $relatedProducts = Products::where('category_id',$products->category_id)->where('id','!=',$id)->orderBy('id','DESC')->get();
+        $relatedProducts = Products::where('category_id',$product->category_id)->where('id','!=',$id)->orderBy('id','DESC')->get();
 
         $hotDeals = Products::where('hot_deals',1)->OrderBY('id','DESC')->limit(3)->get();
-        return view('frontend.product.detail_product',compact('products', 'multiImg', 'relatedProducts', 'hotDeals'));
+        return view('frontend.product.detail_product',compact('product', 'multiImg', 'relatedProducts', 'hotDeals'));
     }
 
     public function userLogout(){
