@@ -41,6 +41,6 @@ class DeleteAccountTest extends TestCase
             ->call('deleteUser')
             ->assertHasErrors(['password']);
 
-        $this->assertNotNull($user->fresh());
+            $this->assertNotNull($user->fresh());
     }
 }
